@@ -1,0 +1,6 @@
+Package: ckb-riscv-toolchain
+Version: 20230214
+Architecture: amd64
+Maintainer: Xuejie Xiao <xxuejie@gmail.com>
+Description: GNU toolchain optimized for Nervos CKB.
+Depends: libc6 (>= 2.17), libgmp10, libmpc3 (>= 1.1.0), libmpfr6 (>= 3.1.3), libstdc++6 (>= 5.2), zlib1g (>= 1:1.1.4)

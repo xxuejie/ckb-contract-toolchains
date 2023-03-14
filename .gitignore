@@ -1,0 +1,4 @@
+/ckb-riscv-gnu-toolchain
+/lib-dummy-atomics
+*.deb
+/ckb-riscv-toolchain_*
