@@ -1,0 +1,11 @@
+rust-std-nightly-riscv64imac_zba_zbb_zbc_zbs-unknown-ckb-elf.tar.gz
+rust-std-nightly-x86_64-unknown-linux-gnu.tar.gz
+cargo-nightly-x86_64-unknown-linux-gnu.tar.gz
+rust-analyzer-nightly-x86_64-unknown-linux-gnu.tar.gz
+rustfmt-nightly-x86_64-unknown-linux-gnu.tar.gz
+rust-demangler-nightly-x86_64-unknown-linux-gnu.tar.gz
+clippy-nightly-x86_64-unknown-linux-gnu.tar.gz
+miri-nightly-x86_64-unknown-linux-gnu.tar.gz
+llvm-tools-nightly-x86_64-unknown-linux-gnu.tar.gz
+rust-src-nightly.tar.gz
+rustc-nightly-x86_64-unknown-linux-gnu.tar.gz
