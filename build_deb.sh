@@ -37,6 +37,8 @@ mkdir -p $BUILD_DIR/DEBIAN
 cp deb/${CONTROL_FILE} $BUILD_DIR/DEBIAN/control
 
 dpkg-deb --build -Zxz --root-owner-group $BUILD_DIR
-tar czf ${BUILD_DIR}.tar.gz -C $BUILD_DIR/usr/lib/ckb-toolchain ${VERSION}
+
+mkdir -p dist-${VERSION}
+mv ${BUILD_DIR}.deb dist-${VERSION}/
 
 echo "Build completed!"
