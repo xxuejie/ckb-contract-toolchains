@@ -1,0 +1,11 @@
+rust-std-##VERSION##-dev-riscv64imac_zba_zbb_zbc_zbs-unknown-ckb-elf
+rust-std-##VERSION##-dev-x86_64-unknown-linux-gnu
+cargo-##VERSION##-dev-x86_64-unknown-linux-gnu
+rust-analyzer-##VERSION##-dev-x86_64-unknown-linux-gnu
+rustfmt-##VERSION##-dev-x86_64-unknown-linux-gnu
+rust-demangler-##VERSION##-dev-x86_64-unknown-linux-gnu
+clippy-##VERSION##-dev-x86_64-unknown-linux-gnu
+miri-##VERSION##-dev-x86_64-unknown-linux-gnu
+llvm-tools-##VERSION##-dev-x86_64-unknown-linux-gnu
+rust-src-##VERSION##-dev
+rustc-##VERSION##-dev-x86_64-unknown-linux-gnu
