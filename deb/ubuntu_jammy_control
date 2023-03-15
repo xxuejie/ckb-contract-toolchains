@@ -1,5 +1,5 @@
 Package: ckb-riscv-toolchain
-Version: 20230214
+Version: ##VERSION##
 Architecture: amd64
 Maintainer: Xuejie Xiao <xxuejie@gmail.com>
 Description: GNU toolchain optimized for Nervos CKB.

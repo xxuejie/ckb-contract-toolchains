@@ -3,10 +3,8 @@ set -ex
 
 VERSION=$1
 PACKAGE_REVISION=$2
-ARCH=$3
-CONTROL_FILE=$4
 
-BUILD_DIR=ckb-riscv-toolchain_${VERSION}_${PACKAGE_REVISION}_${ARCH}
+BUILD_DIR=ckb-riscv-toolchain_${VERSION}_${PACKAGE_REVISION}_amd64
 
 echo "Building $BUILD_DIR"
 rm -rf $BUILD_DIR
@@ -34,7 +32,7 @@ cd ..
 cp lib-dummy-atomics/libdummyatomics.a ${BUILD_DIR}/usr/lib/ckb-toolchain/${VERSION}/riscv64-ckb-elf/lib/
 
 mkdir -p $BUILD_DIR/DEBIAN
-cp deb/${CONTROL_FILE} $BUILD_DIR/DEBIAN/control
+sed "s/##VERSION##/${VERSION}/" deb/ubuntu_jammy_control > $BUILD_DIR/DEBIAN/control
 
 dpkg-deb --build -Zxz --root-owner-group $BUILD_DIR
 

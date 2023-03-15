@@ -6,25 +6,26 @@ VERSION=$2
 
 export PATH=${GNU_ROOT}/bin:$PATH
 
-rm -rf dummylibs
-mkdir dummylibs
+rm -rf starter
+mkdir starter
+cp rustfiles starter/
 
 cd lib-dummy-atomics
 make clean
 make CC=riscv64-ckb-elf-gcc AR=riscv64-ckb-elf-ar
-cp libdummyatomics.a ../dummylibs
+cp libdummyatomics.a ../starter
 # make clean
 cd ..
 
 cd ckb-c-stdlib
 make clean
 make libdummylibc.a CC=riscv64-ckb-elf-gcc AR=riscv64-ckb-elf-ar
-cp libdummylibc.a ../dummylibs
+cp libdummylibc.a ../starter
 # make clean
 cd ..
 
-tar czf dummylibs.tar.gz dummylibs
-rm -rf dummylibs
+tar czf starter.tar.gz starter
+rm -rf starter
 
 cd rust
 sed "s/^#compression-formats.*/compression-formats = \[\"gz\"\]/ ; s/^#channel.*/channel = \"nightly\"/" config-ckb.toml.example > config.toml
@@ -36,7 +37,6 @@ mkdir -p dist-${VERSION}
 for f in $(cat rustfiles); do
   cp rust/build/dist/$f dist-${VERSION}
 done
-cp rustfiles dist-${VERSION}
-mv dummylibs.tar.gz dist-${VERSION}
+mv starter.tar.gz dist-${VERSION}
 
 echo "Build completed!"
