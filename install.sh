@@ -1,7 +1,7 @@
 #!/bin/bash
-set -ex
+set -e
 
-LATEST_VERSION="20230314_1"
+LATEST_VERSION="20230316-1"
 HOST="${GITHUB_HOST:-https://github.com}"
 REPO="xxuejie/ckb-contract-toolchains"
 
@@ -66,3 +66,5 @@ cp libdummyatomics.a libdummylibc.a $RUST_INSTALL_PATH/lib/rustlib/riscv64imac_z
 rustup toolchain link ckb-${VERSION} $RUST_INSTALL_PATH
 
 rm -rf $TMP_ROOT
+
+echo "Install complete, a new Rust toolchain named ckb-${VERSION} is now available!"
