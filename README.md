@@ -40,3 +40,26 @@ $ rustup toolchain list
 ```
 
 All toolchains provided by this repo starts with `ckb`.
+
+## Build from source
+
+First, install build dependencies:
+
+```bash
+$ sudo apt-get install build-essential git lsb-release curl autoconf automake autotools-dev curl python3 libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev libexpat-dev ninja-build cmake pkg-config libssl-dev
+```
+
+Use the following command to trigger build:
+
+```bash
+$ ./build.sh
+```
+
+When completed, there will be a folder named `dist_20230316-1` generated,
+depending on the actual build version, the folder name might be slightly
+different but they will all start with `dist_`. You can use the following
+command to install locally built packages:
+
+```bash
+$ ./dist_20230316-1/install_local.sh
+```

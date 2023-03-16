@@ -62,5 +62,6 @@ cd ..
 
 ./build_deb.sh ${VERSION}
 ./build_rust.sh ./ckb-riscv-toolchain_${VERSION}_ubuntu_jammy_amd64/usr/lib/ckb-toolchain/${VERSION} ${VERSION}
+cp install_local.sh dist_${VERSION}/
 
 rm -rf ckb-riscv-toolchain_${VERSION}_ubuntu_jammy_amd64
