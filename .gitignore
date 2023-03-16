@@ -5,4 +5,5 @@
 /rust
 /ckb-c-stdlib
 /dist-*
+/dist_*
 /tmp/

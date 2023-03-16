@@ -3,10 +3,11 @@ set -ex
 
 GNU_ROOT=$(realpath $1)
 VERSION=$2
+PACKAGE_REVISION=$3
 
 export PATH=${GNU_ROOT}/bin:$PATH
 
-PACKAGE=rust_${VERSION}
+PACKAGE=rust_${VERSION}_${PACKAGE_REVISION}_amd64
 
 rm -rf ${PACKAGE}
 mkdir ${PACKAGE}
@@ -36,13 +37,14 @@ sed "s/^#compression-formats.*/compression-formats = \[\"gz\"\]/ ; s/^#ignore-gi
 ./x dist --target riscv64imac_zba_zbb_zbc_zbs-unknown-ckb-elf,x86_64-unknown-linux-gnu
 cd ..
 
-mkdir -p dist-${VERSION}
 for f in $(cat ${PACKAGE}/rustfiles); do
   tar xzf rust/build/dist/${f}.tar.gz -C ${PACKAGE}
 done
 
 tar czf ${PACKAGE}.tar.gz ${PACKAGE}
 rm -rf ${PACKAGE}
-mv ${PACKAGE}.tar.gz dist-${VERSION}
+
+mkdir -p dist_${VERSION}_${PACKAGE_REVISION}
+mv ${PACKAGE}.tar.gz dist_${VERSION}_${PACKAGE_REVISION}
 
 echo "Build completed!"
