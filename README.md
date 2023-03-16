@@ -5,7 +5,8 @@ A customized Rust toolchain for building CKB smart contracts. Some of the highli
 * RISC-V B extension is enabled by default
 * An accompanying GNU toolchain is provided for now to build C code
 * A new Rust target `riscv64imac_zba_zbb_zbc_zbs-unknown-ckb-elf` enables `std` in Rust
-* Other useful optimizations for CKB
+* Other useful optimizations for CKB, e.g.:
+    + All stderr output will be automatically emitted to CKB's debug output
 
 Notice all the changes made here are optimizations. CKB-VM still strictly obeys RISC-V specification, which means the official Rust toolchain / GNU toolchain can still be used to build CKB smart contracts.
 
@@ -16,7 +17,10 @@ Right now `ckb-contract-toolchains` only supports Ubuntu 22.04 running on x86_64
 In case you are on a bare minimal environment(such as the official jammy docker image), a few basic dependencies are required:
 
 ```bash
-$ sudo apt-get install lsb-release
+$ # If you are on absolute bare minimal machine, install sudo first:
+$ apt-get update && apt-get install sudo
+$ # Now install 2 dependencies used by installation tool
+$ sudo apt-get install lsb-release curl
 ```
 
 [rustup](https://rustup.rs/) is also needed here, please refer to rustup's installation steps.
