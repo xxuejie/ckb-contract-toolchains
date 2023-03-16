@@ -1,6 +1,9 @@
 #!/bin/bash
 set -ex
 
+# Build deps:
+# sudo apt-get install build-essential git lsb-release curl autoconf automake autotools-dev curl python3 libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev libexpat-dev ninja-build cmake pkg-config libssl-dev
+
 VERSION="20230316-1"
 
 GNU_TOOLCHAIN_REPO="https://github.com/nervosnetwork/ckb-riscv-gnu-toolchain"
