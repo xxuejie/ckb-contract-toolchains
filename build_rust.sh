@@ -3,11 +3,10 @@ set -ex
 
 GNU_ROOT=$(realpath $1)
 VERSION=$2
-PACKAGE_REVISION=$3
 
 export PATH=${GNU_ROOT}/bin:$PATH
 
-PACKAGE=rust_${VERSION}_${PACKAGE_REVISION}_amd64
+PACKAGE=rust_${VERSION}_amd64
 
 rm -rf ${PACKAGE}
 mkdir ${PACKAGE}
@@ -44,7 +43,7 @@ done
 tar czf ${PACKAGE}.tar.gz ${PACKAGE}
 rm -rf ${PACKAGE}
 
-mkdir -p dist_${VERSION}_${PACKAGE_REVISION}
-mv ${PACKAGE}.tar.gz dist_${VERSION}_${PACKAGE_REVISION}
+mkdir -p dist_${VERSION}
+mv ${PACKAGE}.tar.gz dist_${VERSION}
 
 echo "Build completed!"

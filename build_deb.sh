@@ -2,9 +2,8 @@
 set -ex
 
 VERSION=$1
-PACKAGE_REVISION=$2
 
-BUILD_DIR=ckb-riscv-toolchain_${VERSION}_${PACKAGE_REVISION}_ubuntu_jammy_amd64
+BUILD_DIR=ckb-riscv-toolchain_${VERSION}_ubuntu_jammy_amd64
 
 echo "Building $BUILD_DIR"
 rm -rf $BUILD_DIR
@@ -37,7 +36,7 @@ sed "s/##VERSION##/${VERSION}/" deb/ubuntu_jammy_control > $BUILD_DIR/DEBIAN/con
 
 dpkg-deb --build -Zxz --root-owner-group $BUILD_DIR
 
-mkdir -p dist_${VERSION}_${PACKAGE_REVISION}
-mv ${BUILD_DIR}.deb dist_${VERSION}_${PACKAGE_REVISION}/
+mkdir -p dist_${VERSION}
+mv ${BUILD_DIR}.deb dist_${VERSION}/
 
 echo "Build completed!"
