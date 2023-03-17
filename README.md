@@ -12,7 +12,9 @@ Notice all the changes made here are optimizations. CKB-VM still strictly obeys 
 
 ## Usage
 
-Right now `ckb-contract-toolchains` only supports Ubuntu 22.04 running on x86_64 architecture.
+### Native Binary Package
+
+Right now native binary `ckb-contract-toolchains` release only supports Ubuntu 22.04 running on x86_64 architecture.
 
 In case you are on a bare minimal environment(such as the official jammy docker image), a few basic dependencies are required:
 
@@ -40,6 +42,14 @@ $ rustup toolchain list
 ```
 
 All toolchains provided by this repo starts with `ckb`.
+
+### Docker
+
+A docker image has been made available [here](https://hub.docker.com/r/xxuejie/ckb-contract-toolchains/tags). You can use it pretty much like [ckb-riscv-gnu-toolchain](https://hub.docker.com/r/nervos/ckb-riscv-gnu-toolchain/tags):
+
+```bash
+$ docker run --rm -it docker.io/xxuejie/ckb-contract-toolchains:20230316-1 bash
+```
 
 ## Build from source
 
