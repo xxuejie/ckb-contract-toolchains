@@ -78,7 +78,7 @@ $ sudo ln -s /usr/bin/cmake3 /usr/local/bin/cmake
 On Fedora 37, the following commands can be used:
 
 ```bash
-$ sudo yum install openssl-devel git cmake3 make autoconf automake python3 libmpc-devel mpfr-devel gmp-devel gawk  bison flex texinfo patchutils gcc gcc-c++ zlib-devel expat-devel ninja-build cmake
+$ sudo yum install openssl-devel git cmake make autoconf automake python3 libmpc-devel mpfr-devel gmp-devel gawk  bison flex texinfo patchutils gcc gcc-c++ zlib-devel expat-devel ninja-build cmake
 ```
 
 On Arch Linux, the following commands can be used:
@@ -86,6 +86,8 @@ On Arch Linux, the following commands can be used:
 ```bash
 $ sudo pacman -Syyu ninja openssl cmake git autoconf automake curl python3 libmpc mpfr gmp gawk base-devel bison flex texinfo gperf libtool patchutils bc zlib expat
 ```
+
+Note that [rustup](https://rustup.rs/) is also a dependency used to manage Rust toolchain.
 
 When the dependencies are installed, use the following command to build and install from source:
 
