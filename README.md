@@ -64,7 +64,7 @@ $ sudo apt-get install cmake pkg-config libssl-dev git lsb-release curl autoconf
 On CentOS 7, the following commands can be used:
 
 ```bash
-$ sudo yum install openssl-devel git cmake3 make autoconf automake python3 libmpc-devel mpfr-devel gmp-devel gawk  bison flex texinfo patchutils gcc gcc-c++ zlib-devel expat-devel
+$ sudo yum install openssl-devel git make autoconf automake python3 libmpc-devel mpfr-devel gmp-devel gawk bison flex texinfo patchutils gcc gcc-c++ zlib-devel expat-devel
 $ sudo yum install centos-release-scl
 $ sudo yum install devtoolset-9
 $ source /opt/rh/devtoolset-9/enable
@@ -78,7 +78,7 @@ $ sudo ln -s /usr/bin/cmake3 /usr/local/bin/cmake
 On Fedora 37, the following commands can be used:
 
 ```bash
-$ sudo yum install openssl-devel git cmake make autoconf automake python3 libmpc-devel mpfr-devel gmp-devel gawk  bison flex texinfo patchutils gcc gcc-c++ zlib-devel expat-devel ninja-build cmake
+$ sudo yum install diffutils openssl-devel git cmake make autoconf automake python3 libmpc-devel mpfr-devel gmp-devel gawk  bison flex texinfo patchutils gcc gcc-c++ zlib-devel expat-devel ninja-build
 ```
 
 On Arch Linux, the following commands can be used:
