@@ -87,6 +87,15 @@ On Arch Linux, the following commands can be used:
 $ sudo pacman -Syyu ninja openssl cmake git autoconf automake curl python3 libmpc mpfr gmp gawk base-devel bison flex texinfo gperf libtool patchutils bc zlib expat
 ```
 
+On macOS, the following commands leveraging [homebrew](https://brew.sh/) might work:
+
+```bash
+$ brew install python3 gawk gnu-sed gmp mpfr libmpc isl zlib expat
+$ brew tap discoteq/discoteq
+$ brew install flock
+$ brew install cmake openssl@1.1 cmake git pkg-config ninja
+```
+
 Note that [rustup](https://rustup.rs/) is also a dependency used to manage Rust toolchain.
 
 When the dependencies are installed, use the following command to build and install from source:
