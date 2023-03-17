@@ -1,10 +1,7 @@
 #!/bin/bash
 set -ex
 
-# Build deps:
-# sudo apt-get install build-essential git lsb-release curl autoconf automake autotools-dev curl python3 libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev libexpat-dev ninja-build cmake pkg-config libssl-dev
-
-VERSION="20230316-1"
+CHECK_DIFF=$1
 
 GNU_TOOLCHAIN_REPO="https://github.com/nervosnetwork/ckb-riscv-gnu-toolchain"
 GNU_TOOLCHAIN_COMMIT="0643dc530859ff557e498c3131e43a3026f88d88"
@@ -25,7 +22,10 @@ fi
 
 cd ckb-riscv-gnu-toolchain
 git checkout $GNU_TOOLCHAIN_COMMIT
-git diff --exit-code
+if [ "x$CHECK_DIFF" = "xtrue" ]
+then
+  git diff --exit-code
+fi
 cd ..
 
 if [ ! -d "rust" ]
@@ -36,7 +36,10 @@ fi
 cd rust
 git checkout $RUST_COMMIT
 git submodule update --init
-git diff --exit-code
+if [ "x$CHECK_DIFF" = "xtrue" ]
+then
+  git diff --exit-code
+fi
 cd ..
 
 if [ ! -d "lib-dummy-atomics" ]
@@ -46,7 +49,10 @@ fi
 
 cd lib-dummy-atomics
 git checkout $LIB_DUMMY_ATOMICS_COMMIT
-git diff --exit-code
+if [ "x$CHECK_DIFF" = "xtrue" ]
+then
+  git diff --exit-code
+fi
 cd ..
 
 if [ ! -d "ckb-c-stdlib" ]
@@ -57,11 +63,8 @@ fi
 cd ckb-c-stdlib
 git checkout $CKB_C_STDLIB_COMMIT
 git submodule update --init
-git diff --exit-code
+if [ "x$CHECK_DIFF" = "xtrue" ]
+then
+  git diff --exit-code
+fi
 cd ..
-
-./build_deb.sh ${VERSION}
-./build_rust.sh ./ckb-riscv-toolchain_${VERSION}_ubuntu_jammy_amd64/usr/lib/ckb-toolchain/${VERSION} ${VERSION}
-cp install_local.sh dist_${VERSION}/
-
-rm -rf ckb-riscv-toolchain_${VERSION}_ubuntu_jammy_amd64

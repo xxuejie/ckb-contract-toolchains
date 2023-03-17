@@ -3,6 +3,7 @@ set -ex
 
 GNU_ROOT=$(realpath $1)
 VERSION=$2
+MOVE_PACKAGE_TO_DIST=$3
 
 export PATH=${GNU_ROOT}/bin:$PATH
 
@@ -40,10 +41,13 @@ for f in $(cat ${PACKAGE}/rustfiles); do
   tar xzf rust/build/dist/${f}.tar.gz -C ${PACKAGE}
 done
 
-tar czf ${PACKAGE}.tar.gz ${PACKAGE}
-rm -rf ${PACKAGE}
+if [ "x$MOVE_PACKAGE_TO_DIST" = "xtrue" ]
+then
+  tar czf ${PACKAGE}.tar.gz ${PACKAGE}
+  rm -rf ${PACKAGE}
 
-mkdir -p dist_${VERSION}
-mv ${PACKAGE}.tar.gz dist_${VERSION}
+  mkdir -p dist_${VERSION}
+  mv ${PACKAGE}.tar.gz dist_${VERSION}
+fi
 
 echo "Build completed!"

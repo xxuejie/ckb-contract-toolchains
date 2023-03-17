@@ -53,23 +53,42 @@ $ docker run --rm -it docker.io/xxuejie/ckb-contract-toolchains:20230316-1 bash
 
 ## Build from source
 
-First, install build dependencies:
+Depending on your specific OS, different steps are required to install dependencies at build time. Here we include installation steps for certain OSes, but please understand that there is no way we can maintain an exhaustive list.
+
+On Ubuntu, the following commands can be used:
 
 ```bash
-$ sudo apt-get install build-essential git lsb-release curl autoconf automake autotools-dev curl python3 libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev libexpat-dev ninja-build cmake pkg-config libssl-dev
+$ sudo apt-get install cmake pkg-config libssl-dev git lsb-release curl autoconf automake autotools-dev curl python3 libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev libexpat-dev ninja-build
 ```
 
-Use the following command to trigger build:
+On CentOS 7, the following commands can be used:
 
 ```bash
-$ ./build.sh
+$ sudo yum install openssl-devel git cmake3 make autoconf automake python3 libmpc-devel mpfr-devel gmp-devel gawk  bison flex texinfo patchutils gcc gcc-c++ zlib-devel expat-devel
+$ sudo yum install centos-release-scl
+$ sudo yum install devtoolset-9
+$ source /opt/rh/devtoolset-9/enable
+$ # Either use the following commands which require an external repo, or install
+$ # ninja-build and cmake3 in ways comfortable to you:
+$ yum install http://repo.okay.com.mx/centos/7/x86_64/release/okay-release-1-1.noarch.rpm
+$ yum install ninja-build cmake3
+$ sudo ln -s /usr/bin/cmake3 /usr/local/bin/cmake
 ```
 
-When completed, there will be a folder named `dist_20230316-1` generated,
-depending on the actual build version, the folder name might be slightly
-different but they will all start with `dist_`. You can use the following
-command to install locally built packages:
+On Fedora 37, the following commands can be used:
 
 ```bash
-$ ./dist_20230316-1/install_local.sh
+$ sudo yum install openssl-devel git cmake3 make autoconf automake python3 libmpc-devel mpfr-devel gmp-devel gawk  bison flex texinfo patchutils gcc gcc-c++ zlib-devel expat-devel ninja-build cmake
+```
+
+On Arch Linux, the following commands can be used:
+
+```bash
+$ sudo pacman -Syyu ninja openssl cmake git autoconf automake curl python3 libmpc mpfr gmp gawk base-devel bison flex texinfo gperf libtool patchutils bc zlib expat
+```
+
+When the dependencies are installed, use the following command to build and install from source:
+
+```bash
+$ ./install_from_source.sh
 ```
