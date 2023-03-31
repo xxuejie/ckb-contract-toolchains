@@ -18,6 +18,10 @@ CKB_C_STDLIB_COMMIT="74a14572881916d2ea73b8f085b6874f22630997"
 if [ ! -d "ckb-riscv-gnu-toolchain" ]
 then
   git clone $GNU_TOOLCHAIN_REPO ckb-riscv-gnu-toolchain
+else
+  cd ckb-riscv-gnu-toolchain
+  git fetch origin
+  cd ..
 fi
 
 cd ckb-riscv-gnu-toolchain
@@ -31,6 +35,10 @@ cd ..
 if [ ! -d "rust" ]
 then
   git clone $RUST_REPO rust
+else
+  cd rust
+  git fetch origin
+  cd ..
 fi
 
 cd rust
@@ -45,6 +53,10 @@ cd ..
 if [ ! -d "lib-dummy-atomics" ]
 then
   git clone $LIB_DUMMY_ATOMICS_REPO lib-dummy-atomics
+else
+  cd lib-dummy-atomics
+  git fetch origin
+  cd ..
 fi
 
 cd lib-dummy-atomics
@@ -58,6 +70,10 @@ cd ..
 if [ ! -d "ckb-c-stdlib" ]
 then
   git clone $CKB_C_STDLIB_REPO ckb-c-stdlib
+else
+  cd ckb-c-stdlib
+  git fetch origin
+  cd ..
 fi
 
 cd ckb-c-stdlib
