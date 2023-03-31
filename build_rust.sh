@@ -1,9 +1,10 @@
 #!/bin/bash
 set -ex
 
-GNU_ROOT=$(realpath $1)
-VERSION=$2
-MOVE_PACKAGE_TO_DIST=$3
+NATIVE_TARGET=$1
+GNU_ROOT=$(realpath $2)
+VERSION=$3
+MOVE_PACKAGE_TO_DIST=$4
 
 export PATH=${GNU_ROOT}/bin:$PATH
 
@@ -33,8 +34,8 @@ cd ..
 
 cd rust
 sed "s/^#compression-formats.*/compression-formats = \[\"gz\"\]/ ; s/^#ignore-git.*/ignore-git = false/" config-ckb.toml.example > config.toml
-./x build --target riscv64imac_zba_zbb_zbc_zbs-unknown-ckb-elf,x86_64-unknown-linux-gnu
-./x dist --target riscv64imac_zba_zbb_zbc_zbs-unknown-ckb-elf,x86_64-unknown-linux-gnu
+./x build --target riscv64imac_zba_zbb_zbc_zbs-unknown-ckb-elf,${NATIVE_TARGET}
+./x dist --target riscv64imac_zba_zbb_zbc_zbs-unknown-ckb-elf,${NATIVE_TARGET}
 cd ..
 
 for f in $(cat ${PACKAGE}/rustfiles); do

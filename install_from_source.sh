@@ -13,9 +13,27 @@ then
   VERSION=$LATEST_VERSION
 fi
 
+need_cmd() {
+    if ! check_cmd "$1"; then
+        echo "need '$1' (command not found)"
+        exit 1
+    fi
+}
+
+check_cmd() {
+    command -v "$1" > /dev/null 2>&1
+}
+
+need_cmd git
+need_cmd gcc
+need_cmd rustc
+need_cmd rustup
+
+NATIVE_TARGET=$(rustc -vV | sed -n 's|host: ||p')
+
 ./check_git.sh false
 ./build_gnu_toolchain.sh ${VERSION} ./ckb-riscv-gnu-toolchain ./lib-dummy-atomics true
-./build_rust.sh /usr/lib/ckb-toolchain/${VERSION} ${VERSION} false
+./build_rust.sh ${NATIVE_TARGET} /usr/lib/ckb-toolchain/${VERSION} ${VERSION} false
 
 RUST_PACKAGE=rust_${VERSION}_amd64
 RUST_INSTALL_PATH=~/.ckb-rustup-toolchains/${VERSION}
