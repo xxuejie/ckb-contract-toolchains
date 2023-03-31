@@ -48,7 +48,7 @@ All toolchains provided by this repo starts with `ckb`.
 A docker image has been made available [here](https://hub.docker.com/r/xxuejie/ckb-contract-toolchains/tags). You can use it pretty much like [ckb-riscv-gnu-toolchain](https://hub.docker.com/r/nervos/ckb-riscv-gnu-toolchain/tags):
 
 ```bash
-$ docker run --rm -it docker.io/xxuejie/ckb-contract-toolchains:20230331-1 bash
+$ docker run --rm -it docker.io/xxuejie/ckb-contract-toolchains:20230331-2 bash
 ```
 
 ## Build from source
