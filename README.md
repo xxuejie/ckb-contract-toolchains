@@ -103,3 +103,11 @@ When the dependencies are installed, use the following command to build and inst
 ```bash
 $ ./install_from_source.sh
 ```
+
+## Uninstalling
+
+To uninstall `ckb-contract-toolchains`, use the following command:
+
+```bash
+$ curl -f https://raw.githubusercontent.com/xxuejie/ckb-contract-toolchains/main/uninstall.sh | bash
+```
