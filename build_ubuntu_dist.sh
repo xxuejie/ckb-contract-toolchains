@@ -12,6 +12,6 @@ VERSION=$(cat version)
 
 ./check_git.sh true
 ./build_deb.sh ${VERSION}
-./build_rust.sh x86_64-unknown-linux-gnu tmp/ckb-riscv-toolchain_${VERSION}_ubuntu_jammy_amd64/usr/lib/ckb-toolchain/${VERSION} ${VERSION} true
+./build_rust.sh x86_64-unknown-linux-gnu tmp/ckb-riscv-toolchain_${VERSION}_ubuntu_jammy_amd64/usr/local/lib/ckb-toolchain/${VERSION} ${VERSION} true
 
 rm -rf tmp/ckb-riscv-toolchain_${VERSION}_ubuntu_jammy_amd64

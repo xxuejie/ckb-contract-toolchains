@@ -8,6 +8,7 @@ then
 fi
 
 sudo rm -rf /usr/lib/ckb-toolchain
+sudo rm -rf /usr/local/lib/ckb-toolchain
 sudo rm -rf /usr/local/bin/riscv64-ckb-elf-*
 rm -rf ~/.ckb-rustup-toolchains
 rm -rf ~/.rustup/toolchains/ckb-*

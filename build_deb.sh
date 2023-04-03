@@ -11,13 +11,13 @@ BUILD_DIR=tmp/ckb-riscv-toolchain_${VERSION}_ubuntu_jammy_amd64
 
 echo "Building $BUILD_DIR"
 rm -rf $BUILD_DIR
-mkdir -p $BUILD_DIR/usr/lib/ckb-toolchain
+mkdir -p $BUILD_DIR/usr/local/lib/ckb-toolchain
 mkdir -p $BUILD_DIR/usr/local/bin
 
 ./build_gnu_toolchain.sh ${VERSION} ./ckb-riscv-gnu-toolchain ./lib-dummy-atomics false
 
-cp -r /usr/lib/ckb-toolchain/${VERSION} $BUILD_DIR/usr/lib/ckb-toolchain/
-# rm -rf /usr/lib/ckb-toolchain/${VERSION}
+cp -r /usr/local/lib/ckb-toolchain/${VERSION} $BUILD_DIR/usr/local/lib/ckb-toolchain/
+# rm -rf /usr/local/lib/ckb-toolchain/${VERSION}
 ./link_bins.sh $BUILD_DIR
 
 mkdir -p $BUILD_DIR/DEBIAN

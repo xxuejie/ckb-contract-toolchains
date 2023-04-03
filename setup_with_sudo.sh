@@ -2,5 +2,5 @@
 
 set -ex
 
-sudo mkdir -p /usr/lib/ckb-toolchain
-sudo chown -R $USER /usr/lib/ckb-toolchain
+sudo mkdir -p /usr/local/lib/ckb-toolchain
+sudo chown -R $USER /usr/local/lib/ckb-toolchain

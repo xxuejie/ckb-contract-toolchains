@@ -33,7 +33,7 @@ NATIVE_TARGET=$(rustc -vV | sed -n 's|host: ||p')
 
 ./check_git.sh false
 ./build_gnu_toolchain.sh ${VERSION} ./ckb-riscv-gnu-toolchain ./lib-dummy-atomics true
-./build_rust.sh ${NATIVE_TARGET} /usr/lib/ckb-toolchain/${VERSION} ${VERSION} false
+./build_rust.sh ${NATIVE_TARGET} /usr/local/lib/ckb-toolchain/${VERSION} ${VERSION} false
 
 RUST_PACKAGE=rust_${VERSION}_amd64
 RUST_INSTALL_PATH=~/.ckb-rustup-toolchains/${VERSION}
