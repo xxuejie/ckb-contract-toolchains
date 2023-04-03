@@ -33,6 +33,6 @@ cp libdummyatomics.a /usr/local/lib/ckb-toolchain/${VERSION}/riscv64-ckb-elf/lib
 if [ "x$LINK_BINS" = "xtrue" ]
 then
   for b in $(find /usr/local/lib/ckb-toolchain/${VERSION}/bin/*); do
-    sudo ln -sf ../../../$b /usr/local/bin/"$(basename -- $b)"
+    sudo ln -sf ../../..$b /usr/local/bin/"$(basename -- $b)"
   done
 fi
