@@ -14,7 +14,7 @@ rm -rf ${PACKAGE}
 mkdir ${PACKAGE}
 
 RUST_VERSION=$(cat rust/src/version)
-sed "s/##VERSION##/${RUST_VERSION}/" rustfiles.template > ${PACKAGE}/rustfiles
+sed "s/##VERSION##/${RUST_VERSION}/ ; s/##NATIVE_TARGET##/${NATIVE_TARGET}/" rustfiles.template > ${PACKAGE}/rustfiles
 cp install_rust.sh ${PACKAGE}
 cp install_rust_component.sh ${PACKAGE}
 
