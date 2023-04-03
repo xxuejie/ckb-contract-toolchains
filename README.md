@@ -55,11 +55,15 @@ $ docker run --rm -it docker.io/xxuejie/ckb-contract-toolchains:20230331-2 bash
 
 Depending on your specific OS, different steps are required to install dependencies at build time. Here we include installation steps for certain OSes, but please understand that there is no way we can maintain an exhaustive list.
 
+### Ubuntu
+
 On Ubuntu, the following commands can be used:
 
 ```bash
 $ sudo apt-get install cmake pkg-config libssl-dev git lsb-release curl autoconf automake autotools-dev curl python3 libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev libexpat-dev ninja-build
 ```
+
+### CentOS
 
 On CentOS 7, the following commands can be used:
 
@@ -75,17 +79,23 @@ $ yum install ninja-build cmake3
 $ sudo ln -s /usr/bin/cmake3 /usr/local/bin/cmake
 ```
 
+### Fedora
+
 On Fedora 37, the following commands can be used:
 
 ```bash
 $ sudo yum install diffutils openssl-devel git cmake make autoconf automake python3 libmpc-devel mpfr-devel gmp-devel gawk  bison flex texinfo patchutils gcc gcc-c++ zlib-devel expat-devel ninja-build
 ```
 
+### Arch Linux
+
 On Arch Linux, the following commands can be used:
 
 ```bash
 $ sudo pacman -Syyu ninja openssl cmake git autoconf automake curl python3 libmpc mpfr gmp gawk base-devel bison flex texinfo gperf libtool patchutils bc zlib expat
 ```
+
+### macOS
 
 On macOS, the following commands leveraging [homebrew](https://brew.sh/) might work:
 
@@ -95,6 +105,10 @@ $ brew tap discoteq/discoteq
 $ brew install flock
 $ brew install cmake openssl@1.1 cmake git pkg-config ninja
 ```
+
+You will also need to make sure that this repo lives on a case-sensitive file system. Please refer to this [article](https://brianboyko.medium.com/a-case-sensitive-src-folder-for-mac-programmers-176cc82a3830) as an example to setup case-sensitive file systems on macOS.
+
+### General Steps
 
 Note that [rustup](https://rustup.rs/) is also a dependency used to manage Rust toolchain.
 
