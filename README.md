@@ -100,7 +100,7 @@ $ sudo pacman -Syyu ninja openssl cmake git autoconf automake curl python3 libmp
 On macOS, the following commands leveraging [homebrew](https://brew.sh/) can be used:
 
 ```bash
-$ brew install coreutils gawk gnu-sed gmp mpfr libmpc isl zlib expat flock cmake pkg-config ninja openssl
+$ brew install coreutils gawk gnu-sed gmp mpfr libmpc isl zlib expat flock cmake pkg-config ninja openssl texinfo
 ```
 
 You will also need to make sure that this repo lives on a case-sensitive file system. Please refer to this [article](https://brianboyko.medium.com/a-case-sensitive-src-folder-for-mac-programmers-176cc82a3830) as an example to setup case-sensitive file systems on macOS.
