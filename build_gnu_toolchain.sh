@@ -16,19 +16,19 @@ then
 fi
 rm -rf /usr/local/lib/ckb-toolchain/${VERSION}
 
-EXTRA_ARGS=""
+cd $GNU_TOOLCHAIN_PATH
+export CFLAGS_FOR_TARGET_EXTRA="-Os -DCKB_NO_MMU -D__riscv_soft_float -D__riscv_float_abi_soft"
 if [ $(uname -m) == "arm64" ] && [ $(uname -s) == "Darwin" ]
 then
   # Fix the issue that gdb 12.1 cannot locate gmp installed via homebrew on Apple Silicon
   export host_configargs="--with-libgmp-prefix=/opt/homebrew"
 fi
-
-cd $GNU_TOOLCHAIN_PATH
-export CFLAGS_FOR_TARGET_EXTRA="-Os -DCKB_NO_MMU -D__riscv_soft_float -D__riscv_float_abi_soft"
 ./configure --prefix=/usr/local/lib/ckb-toolchain/${VERSION} --with-arch=rv64imc_zba_zbb_zbc_zbs
 make clean
 make -j$(nproc)
 # make clean
+unset host_configargs
+unset CFLAGS_FOR_TARGET_EXTRA
 
 cd $LIB_DUMMY_ATOMICS_PATH
 make clean
