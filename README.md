@@ -105,6 +105,16 @@ $ brew install coreutils gawk gnu-sed gmp mpfr libmpc isl zlib expat flock cmake
 
 You will also need to make sure that this repo lives on a case-sensitive file system. Please refer to this [article](https://brianboyko.medium.com/a-case-sensitive-src-folder-for-mac-programmers-176cc82a3830) as an example to setup case-sensitive file systems on macOS.
 
+A `CLI` tip(e.g., when you are launching a Mac instance on AWS): for APFS file system, the following CLI command can help you create a new case-sensitive volume named `Code` on `disk5`:
+
+```bash
+$ sudo diskutil apfs addVolume disk5 APFSX Code
+```
+
+There is not need to set a volume size beforehand, APFS will manage disk space for you.
+
+Here we are using `disk5` but it might differ on your system, to check available disks, use `diskutil list`.
+
 ### General Steps
 
 Note that [rustup](https://rustup.rs/) is also a dependency used to manage Rust toolchain.
