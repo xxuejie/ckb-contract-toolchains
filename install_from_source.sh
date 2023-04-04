@@ -24,6 +24,7 @@ check_cmd() {
     command -v "$1" > /dev/null 2>&1
 }
 
+need_cmd uname
 need_cmd git
 need_cmd gcc
 need_cmd rustc
