@@ -97,7 +97,16 @@ $ sudo pacman -Syyu ninja openssl cmake git autoconf automake curl python3 libmp
 
 ### macOS
 
-On macOS, the following commands leveraging [homebrew](https://brew.sh/) can be used:
+We have tested and supported installation from source in all of the following configurations:
+
+* x86_64 Macs on macOS Big Sur
+* x86_64 Macs on macOS Monterey
+* x86_64 Macs on macOS Ventura
+* Apple Silicon Macs on macOS Big Sur
+* Apple Silicon Macs on macOS Monterey
+* Apple Silicon Macs on macOS Ventura
+
+To install dependencies, the following commands leveraging [homebrew](https://brew.sh/) can be used:
 
 ```bash
 $ brew install coreutils gawk gnu-sed gmp mpfr libmpc isl zlib expat flock cmake pkg-config ninja openssl texinfo autoconf
