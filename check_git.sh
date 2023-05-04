@@ -4,7 +4,7 @@ set -ex
 CHECK_DIFF=$1
 
 GNU_TOOLCHAIN_REPO="https://github.com/nervosnetwork/ckb-riscv-gnu-toolchain"
-GNU_TOOLCHAIN_COMMIT="0643dc530859ff557e498c3131e43a3026f88d88"
+GNU_TOOLCHAIN_COMMIT="0fa23af28a7822f21856057f8bd2519040ad9290"
 
 RUST_REPO="https://github.com/xxuejie/rust"
 RUST_COMMIT="8d2ffbbc3efb4249226a52d179d7855756eb19a7"
