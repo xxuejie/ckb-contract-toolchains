@@ -3,34 +3,17 @@ set -ex
 
 CHECK_DIFF=$1
 
-GNU_TOOLCHAIN_REPO="https://github.com/nervosnetwork/ckb-riscv-gnu-toolchain"
-GNU_TOOLCHAIN_COMMIT="0fa23af28a7822f21856057f8bd2519040ad9290"
-
 RUST_REPO="https://github.com/xxuejie/rust"
-RUST_COMMIT="8d2ffbbc3efb4249226a52d179d7855756eb19a7"
+RUST_COMMIT="2ea6fc05ccbf700f840ceeacd67203650a2f3ed9"
 
 LIB_DUMMY_ATOMICS_REPO="https://github.com/xxuejie/lib-dummy-atomics"
-LIB_DUMMY_ATOMICS_COMMIT="3bcff6a3190780415527cc4d67f9242082dd3594"
+LIB_DUMMY_ATOMICS_COMMIT="50dc5fefb215bc93e761fb655d7a4fdade04c2d1"
 
 CKB_C_STDLIB_REPO="https://github.com/nervosnetwork/ckb-c-stdlib"
 CKB_C_STDLIB_COMMIT="74a14572881916d2ea73b8f085b6874f22630997"
 
-if [ ! -d "ckb-riscv-gnu-toolchain" ]
-then
-  git clone $GNU_TOOLCHAIN_REPO ckb-riscv-gnu-toolchain
-else
-  cd ckb-riscv-gnu-toolchain
-  git fetch origin
-  cd ..
-fi
-
-cd ckb-riscv-gnu-toolchain
-git checkout $GNU_TOOLCHAIN_COMMIT
-if [ "x$CHECK_DIFF" = "xtrue" ]
-then
-  git diff --exit-code
-fi
-cd ..
+CLANG_RV_CC_REPO="https://github.com/xxuejie/clang-rv-cc"
+CLANG_RV_CC_COMMIT="fca6ca59c9be56fb2e80cf98a190f465908aede5"
 
 if [ ! -d "rust" ]
 then
@@ -79,6 +62,23 @@ fi
 cd ckb-c-stdlib
 git checkout $CKB_C_STDLIB_COMMIT
 git submodule update --init
+if [ "x$CHECK_DIFF" = "xtrue" ]
+then
+  git diff --exit-code
+fi
+cd ..
+
+if [ ! -d "clang-rv-cc" ]
+then
+  git clone $CLANG_RV_CC_REPO clang-rv-cc
+else
+  cd clang-rv-cc
+  git fetch origin
+  cd ..
+fi
+
+cd clang-rv-cc
+git checkout $CLANG_RV_CC_COMMIT
 if [ "x$CHECK_DIFF" = "xtrue" ]
 then
   git diff --exit-code

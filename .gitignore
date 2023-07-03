@@ -1,7 +1,6 @@
-/ckb-riscv-gnu-toolchain
+/clang-rv-cc
 /lib-dummy-atomics
 *.deb
-/ckb-riscv-toolchain_*
 /rust
 /ckb-c-stdlib
 /dist-*
