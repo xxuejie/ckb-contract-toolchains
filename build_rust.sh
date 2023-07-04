@@ -15,7 +15,6 @@ then
 elif [ "x$NATIVE_TARGET" != "x$INFERRED_TARGET" ]
 then
   CROSS_COMPILE="true"
-  NATIVE_TARGET=$INFERRED_TARGET
 fi
 
 PACKAGE=rust_${VERSION}_${NATIVE_TARGET}
@@ -30,12 +29,12 @@ cp install_rust.sh ${PACKAGE}
 mkdir -p ${PACKAGE}/clang-rv-cc
 cd clang-rv-cc
 cargo clean
+cargo build --release
 if [ "x$CROSS_COMPILE" = "xtrue" ]
 then
   cargo build --release --target=${NATIVE_TARGET}
   cp target/${NATIVE_TARGET}/release/clang-rv-cc ../${PACKAGE}/clang-rv-cc/
 else
-  cargo build --release
   cp target/release/clang-rv-cc ../${PACKAGE}/clang-rv-cc/
 fi
 cd ..
@@ -59,8 +58,8 @@ cp -r ckb-c-stdlib/libc ${PACKAGE}/clang-rv-cc/
 
 cd rust
 sed "s/^#compression-formats.*/compression-formats = \[\"gz\"\]/ ; s/^#ignore-git.*/ignore-git = false/" config-ckb.toml.example > config.toml
-./x build --target riscv64imac_zba_zbb_zbc_zbs-unknown-ckb-elf,${NATIVE_TARGET}
-./x dist --target riscv64imac_zba_zbb_zbc_zbs-unknown-ckb-elf,${NATIVE_TARGET}
+./x build --build ${INFERRED_TARGET} --host ${NATIVE_TARGET} --target riscv64imac_zba_zbb_zbc_zbs-unknown-ckb-elf,${NATIVE_TARGET}
+./x dist --build ${INFERRED_TARGET} --host ${NATIVE_TARGET} --target riscv64imac_zba_zbb_zbc_zbs-unknown-ckb-elf,${NATIVE_TARGET}
 cd ..
 
 for f in $(cat ${PACKAGE}/rustfiles); do
