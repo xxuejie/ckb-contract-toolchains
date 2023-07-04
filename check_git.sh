@@ -13,7 +13,7 @@ CKB_C_STDLIB_REPO="https://github.com/nervosnetwork/ckb-c-stdlib"
 CKB_C_STDLIB_COMMIT="74a14572881916d2ea73b8f085b6874f22630997"
 
 CLANG_RV_CC_REPO="https://github.com/xxuejie/clang-rv-cc"
-CLANG_RV_CC_COMMIT="fca6ca59c9be56fb2e80cf98a190f465908aede5"
+CLANG_RV_CC_COMMIT="1a19cfd3489f971151c0e30b8bccde2af8ea55c6"
 
 if [ ! -d "rust" ]
 then
