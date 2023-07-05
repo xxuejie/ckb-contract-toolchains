@@ -4,7 +4,7 @@ set -ex
 CHECK_DIFF=$1
 
 RUST_REPO="https://github.com/xxuejie/rust"
-RUST_COMMIT="2ea6fc05ccbf700f840ceeacd67203650a2f3ed9"
+RUST_COMMIT="c0e12e3b812dacf2d9fbc9e1fb9c19e60168637a"
 
 LIB_DUMMY_ATOMICS_REPO="https://github.com/xxuejie/lib-dummy-atomics"
 LIB_DUMMY_ATOMICS_COMMIT="50dc5fefb215bc93e761fb655d7a4fdade04c2d1"
