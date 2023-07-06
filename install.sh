@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-LATEST_VERSION="20230706-1"
+LATEST_VERSION=$(curl https://raw.githubusercontent.com/xxuejie/ckb-contract-toolchains/main/version)
 HOST="${GITHUB_HOST:-https://github.com}"
 REPO="xxuejie/ckb-contract-toolchains"
 
