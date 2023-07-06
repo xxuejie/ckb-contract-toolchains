@@ -10,7 +10,14 @@ then
   exit 1
 fi
 
-VERSION=$1
+VERSION=$(cat version)
+
+SKIP_GIT=$1
+
+if [ "x$SKIP_GIT" != "xtrue" ]
+then
+  ./check_git.sh true
+fi
 
 ./build_rust.sh ${VERSION} true
 
