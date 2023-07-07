@@ -10,7 +10,7 @@ RUN echo "deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy-16 main" \
     wget -qO /etc/apt/trusted.gpg.d/llvm.asc \
         https://apt.llvm.org/llvm-snapshot.gpg.key && \
     apt-get update && \
-    apt_get install -y clang-16 lld-16 llvm-16
+    apt-get install -y clang-16 lld-16 llvm-16
 
 RUN apt-get clean
 

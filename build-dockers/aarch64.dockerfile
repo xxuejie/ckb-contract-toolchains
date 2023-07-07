@@ -22,7 +22,15 @@ ENV PATH=$PATH:/x-tools/aarch64-unknown-linux-gnu/bin
 ENV CC_aarch64_unknown_linux_gnu=aarch64-unknown-linux-gnu-gcc \
     AR_aarch64_unknown_linux_gnu=aarch64-unknown-linux-gnu-ar \
     CXX_aarch64_unknown_linux_gnu=aarch64-unknown-linux-gnu-g++
+ENV CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER=aarch64-unknown-linux-gnu-gcc
 
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
 ENV PATH=/root/.cargo/bin:$PATH
 RUN rustup target add aarch64-unknown-linux-gnu
+
+RUN echo "deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy-16 main" \
+      > /etc/apt/sources.list.d/llvm.list && \
+    wget -qO /etc/apt/trusted.gpg.d/llvm.asc \
+        https://apt.llvm.org/llvm-snapshot.gpg.key && \
+    apt-get update && \
+    apt-get install -y clang-16 lld-16 llvm-16
