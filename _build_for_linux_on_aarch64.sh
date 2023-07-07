@@ -4,6 +4,10 @@ set -ex
 # This scripts builds the Rust distribution on Linux aarch64 instances
 # for both x64 and aarch64 Linux
 
+# Note this is not used in production now, since x64 distribution requires
+# special attention on GLIBC version. It is merely included here for
+# reference reason.
+
 if [ "x$OPENSSL_AARCH64" = "x" ]
 then
   echo "Please set the OPENSSL_AARCH64 environment variable!"

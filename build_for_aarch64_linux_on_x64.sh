@@ -2,17 +2,11 @@
 set -ex
 
 # This scripts builds the Rust distribution on Linux x64 instances
-# for both x64 and aarch64 Linux
+# for aarch64 Linux. Typically this is built on Ubuntu 22.04
 
 if [ "x$OPENSSL_AARCH64" = "x" ]
 then
   echo "Please set the OPENSSL_AARCH64 environment variable!"
-  exit 1
-fi
-
-if [ "x$OPENSSL_X64" = "x" ]
-then
-  echo "Please set the OPENSSL_X64 environment variable!"
   exit 1
 fi
 
@@ -24,11 +18,6 @@ if [ "x$SKIP_GIT" != "xtrue" ]
 then
   ./check_git.sh true
 fi
-
-export OPENSSL_STATIC=1
-export OPENSSL_INCLUDE_DIR=${OPENSSL_X64}/include
-export OPENSSL_LIB_DIR=${OPENSSL_X64}
-./build_rust.sh ${VERSION} true
 
 export OPENSSL_STATIC=1
 export OPENSSL_INCLUDE_DIR=${OPENSSL_AARCH64}/include
