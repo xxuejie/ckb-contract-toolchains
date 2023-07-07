@@ -22,3 +22,7 @@ ENV PATH=$PATH:/x-tools/aarch64-unknown-linux-gnu/bin
 ENV CC_aarch64_unknown_linux_gnu=aarch64-unknown-linux-gnu-gcc \
     AR_aarch64_unknown_linux_gnu=aarch64-unknown-linux-gnu-ar \
     CXX_aarch64_unknown_linux_gnu=aarch64-unknown-linux-gnu-g++
+
+RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
+ENV PATH=/root/.cargo/bin:$PATH
+RUN rustup target add aarch64-unknown-linux-gnu
