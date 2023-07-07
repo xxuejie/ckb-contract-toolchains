@@ -10,6 +10,12 @@ then
   exit 1
 fi
 
+if [ "x$OPENSSL_X64" = "x" ]
+then
+  echo "Please set the OPENSSL_X64 environment variable!"
+  exit 1
+fi
+
 VERSION=$(cat version)
 
 SKIP_GIT=$1
@@ -19,6 +25,9 @@ then
   ./check_git.sh true
 fi
 
+export OPENSSL_STATIC=1
+export OPENSSL_INCLUDE_DIR=${OPENSSL_X64}/include
+export OPENSSL_LIB_DIR=${OPENSSL_X64}
 ./build_rust.sh ${VERSION} true
 
 export OPENSSL_STATIC=1
