@@ -22,22 +22,11 @@ check_cmd() {
     command -v "$1" > /dev/null 2>&1
 }
 
-need_cmd uname
-need_cmd lsb_release
 need_cmd curl
 need_cmd rustup
+need_cmd rustc
 need_cmd tar
 need_cmd gzip
-
-ARCH=$(uname -m)
-DISTRO=$(lsb_release -is)
-DISTRO_VERSION=$(lsb_release -sr)
-
-if [ "$ARCH" != "x86_64" ] || [ "$DISTRO" != "Ubuntu" ] || [ "$DISTRO_VERSION" != "22.04" ]
-then
-  echo "Currently only Ubuntu 22.04 running on x86_64 architecture is supported!"
-  exit 1
-fi
 
 TMP_ROOT=/tmp/_ckb_toolchain_install
 rm -rf $TMP_ROOT
