@@ -57,7 +57,14 @@ cd ..
 cp -r ckb-c-stdlib/libc ${PACKAGE}/clang-rv-cc/
 
 cd rust
-sed "s/^#compression-formats.*/compression-formats = \[\"gz\"\]/ ; s/^#ignore-git.*/ignore-git = false/" config-ckb.toml.example > config.toml
+./configure \
+  --dist-compression-formats=gz \
+  --sysconfdir=etc \
+  --set profile="\"user\"" \
+  --set build.docs=false \
+  --set rust.ignore-git=true \
+  --set rust.lld=true \
+  ${RUST_CONFIGURE_ARGS}
 ./x build --build ${INFERRED_TARGET} --host ${NATIVE_TARGET} --target riscv64imac_zba_zbb_zbc_zbs-unknown-ckb-elf,${NATIVE_TARGET}
 ./x dist --build ${INFERRED_TARGET} --host ${NATIVE_TARGET} --target riscv64imac_zba_zbb_zbc_zbs-unknown-ckb-elf,${NATIVE_TARGET}
 cd ..
