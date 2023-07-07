@@ -28,7 +28,7 @@ need_cmd rustc
 need_cmd tar
 need_cmd gzip
 
-TMP_ROOT=/tmp/_ckb_toolchain_install
+TMP_ROOT=/tmp/_ckb_toolchain_extract
 rm -rf $TMP_ROOT
 mkdir -p $TMP_ROOT
 
