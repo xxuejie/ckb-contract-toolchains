@@ -39,5 +39,5 @@ export MACOSX_DEPLOYMENT_TARGET=10.7
 export OPENSSL_STATIC=1
 export OPENSSL_INCLUDE_DIR=${OPENSSL_X64}/include
 export OPENSSL_LIB_DIR=${OPENSSL_X64}
-export RUST_CONFIGURE_ARGS="--set rust.jemalloc --set llvm.ninja=false --set rust.lto=thin"
+export RUST_CONFIGURE_ARGS="--set rust.jemalloc --set llvm.ninja=false"
 ./build_rust.sh ${VERSION} true x86_64-apple-darwin
