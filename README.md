@@ -3,7 +3,7 @@
 A customized Rust toolchain for building CKB smart contracts. Some of the highlights are:
 
 * RISC-V B extension is enabled by default
-* An accompanying GNU toolchain is provided for now to build C code
+* clang is leveraged to build C code, so we can deal with LLVM solely
 * A new Rust target `riscv64imac_zba_zbb_zbc_zbs-unknown-ckb-elf` enables `std` in Rust
 * Other useful optimizations for CKB, e.g.:
     + All stderr output will be automatically emitted to CKB's debug output
