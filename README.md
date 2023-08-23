@@ -1,3 +1,19 @@
+# NOTE
+
+We have tried this path, and learned a lot alongside the journey of building a custom Rust toolchain. Most of the optimizations applied here, can also be applied on a normal toolchain with some tweaking of parameters, see the following commits for some examples:
+
+* https://github.com/xxuejie/ckb-zero-lock/commit/0e8a6d001b8e158c24e91f65c72e92d2eb2aea26
+* https://github.com/xxuejie/mmr-post-demo/commit/709da2bd83ea7f09c58cd60d5daa17c8d99be122
+
+The only remaining part that is not directly applicable to the official Rust toolchain, is the `std` part. We do enable an `std` crate here in this custom Rust toolchain. Unfortunately, there are more elements intrinsic to porting `std` in Rust to a new architecture. In many places, crates are not assuming `std` alone, but doing inferring work on `target_os` as well:
+
+* https://github.com/rust-random/getrandom/blob/2e483d68aaa57168a84489349d6473b492e05478/src/lib.rs#L219-L292
+* https://github.com/dylni/os_str_bytes/blob/71033fe1bec5610a57457d4d0e4626c3d5570cef/src/common/mod.rs#L9-L18
+
+It would not be feasible work for us to persuade every related crate out there to introduce `ckb` as a supported `target_os` of Rust. This means having an `std` crate in the custom Rust toolchain is not enough, we will need to patch certain crates to make things work. And if we are patching crates already, we could simply choose to patch those crates so the `std` related part is commented out.
+
+Given those thoughts, a custom Rust toolchain here, does not really provide more benefits over an official Rust distribution. Hence we are deprecating this toolchain for now in favor of the official Rust compiler set.
+
 # ckb-contract-toolchains
 
 A customized Rust toolchain for building CKB smart contracts. Some of the highlights are:
